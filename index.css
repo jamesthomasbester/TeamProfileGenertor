@@ -14,14 +14,59 @@ header{
 
 button{
     background-color:cornflowerblue;
+    width: 40px;
+    height: 40px;
     color: #fff;
     font-size: 1.5rem;
     border: none;
-    padding: 10px 20px;
     border-radius: 50%;
     cursor: pointer;
+    margin: 340px 40px;
 }
 
 main{
+    display: flex;
+    width: 100%;
+    justify-content: center;
     padding:20px;
+}
+
+.employee-card{
+    background-color:aliceblue;
+    width: 300px;
+    height: 400px;
+    display: flex;
+    flex-flow: column;
+}
+
+.name-banner{
+    padding:20px;
+    background-color:royalblue;
+    text-align: center;
+    color: #fff;
+}
+
+.info-container {
+    padding: 60px 30px;
+    
+}
+
+.info-item{
+    border: 1px solid #fff;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    padding: 10px 0px
+}
+
+.info-item p {
+    overflow: hidden;
+    width: 100%;
+    text-align: left;
+}
+
+.info-item p:first-child{
+    font-weight: bold;
+    padding-right: 10px;
 }
