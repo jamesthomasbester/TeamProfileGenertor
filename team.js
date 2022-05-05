@@ -1,6 +1,11 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+function tests(x, y) {
+
+    return x + y;
+}
+
 
 const team = [
 
@@ -49,16 +54,17 @@ inquirer.prompt([
 ])
 .then(answer => {
     if (answer.name == 'Create a new Team'){
-        createNewTeam()
+        createNewTeam('Team.json')
     }else if(answer.name == 'Edit an existing team'){
-        
+        //TODO
     }else{
         process.exit();
     }
 });
+
 }
 
-const createNewTeam = () => {
+const createNewTeam = (Team) => {
     var memberDetails ={
         id: 0,
         name: "",
@@ -175,12 +181,12 @@ const loop = () =>{
         if(answer.loop == "Yes"){
             createNewTeam()
         }else if(answer.loop == "No"){
-            fs.writeFileSync('Team.json', JSON.stringify(team));
+            fs.writeFileSync(Team, JSON.stringify(team));
         }
     })
 }
 }
 
-
-
 init()
+
+module.exports = tests;

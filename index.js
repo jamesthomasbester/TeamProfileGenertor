@@ -1,9 +1,8 @@
-console.log('test');
 
-$.get('./Team.json', (data) => {
+function createCard(path){
+$.get(path, (data) => {
     data.forEach(element =>{
 
-        let title;
         let extra;
         if(element.position.pager){
             extra = `
@@ -53,3 +52,8 @@ $.get('./Team.json', (data) => {
     `);
     })
 })
+
+}
+
+createCard('./Team.json')
+
