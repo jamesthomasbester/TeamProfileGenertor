@@ -1,55 +1,55 @@
-const inquirer = require('inquirer');
+console.log('test');
 
-const team = {
-    name: '',
-    members: [
-        
-    ]
-}
+$.get('./Team.json', (data) => {
+    data.forEach(element =>{
 
-const init = () => {
-    inquirer.prompt([
-    { 
-        type: 'list', 
-        name: 'name', 
-        message: 'welcome to team generator, please select from the following:', 
-        choices: ['Create a new Team', 'Edit an existing team', 'Quit']
-    }
-])
-.then(answer => {
-    if (answer.name == 'Create a new Team'){
-        createNewTeam()
-    }else if(answer.name == 'Edit an existing team'){
-        
-    }else{
-        process.exit();
-    }
-});
-}
+        let title;
+        let extra;
+        if(element.position.pager){
+            extra = `
+            <div class="info-item">
+            <p id="pager">Pager</p>
+            <p>${element.position.pager}</p>
+            `
+        }else if(element.position.github){
+            extra = `
+            <div class="info-item">
+            <p id="pager">Github</p>
+            <p><a>${element.position.github}</a></p>
+            `
+        }else if(element.position.contractEndDate){
+            extra = `
+            <div class="info-item">
+            <p id="pager">Contract End Date</p>
+            <p>${element.position.contractEndDate}</p>
+            `
+        }
 
-const createNewTeam = () => {
-    inquirer.prompt([{
-        name: 'teamName',
-        message: 'What is your team name?'
-    }])
-    .then(answer => {
-        team.name = answer.teamName;
+
+        console.log(element)
+        $('#main').append(`        
+        <div class="employee-card">
+        <div class="name-banner">
+            <h2>${element.name}</h2>
+            <h2>${element.position.title}</h2>
+        </div>
+        <div class="info-container">
+        <div class="info-item">
+            <p id="id">ID:</p>
+            <p>${element.id}</p>
+        </div>
+        <div class="info-item">
+            <p id="Email">Email:</p>
+            <p>${element.email}</p>
+        </div>
+        <div class="info-item">
+            <p id="Phone">Phone:</p>
+            <p>${element.phone}</p>
+        </div>
+        ${extra}
+    </div>
+    </div>
+    </div>
+    `);
     })
-
-    const initTeamMember = () => (
-        inquirer.prompt([{
-            name: 'initTeamMember',
-            message: ''
-        }])
-    )
-
-    const addNewTeamMember = () =>{
-        inquirer.prompt([{
-            Type: 'list',
-            name: 'teamMember',
-            message: 'Would you like to add a team member?'
-        }])
-    }
-}
-
-init()
+})

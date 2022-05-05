@@ -32,6 +32,7 @@ main{
 }
 
 .employee-card{
+    margin: 20px;
     background-color:aliceblue;
     width: 300px;
     height: 400px;
