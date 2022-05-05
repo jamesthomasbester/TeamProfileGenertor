@@ -33,7 +33,8 @@ and to run tests
 ```
 and useless test
 
-![gif](https://user-images.githubusercontent.com/46641259/166922686-086c7566-ce7d-4eca-b46b-4248aaf39b3c.gif)
+![gif](https://user-images.githubusercontent.com/46641259/166923157-43d62de9-e667-4923-b809-0c9272d8a6a9.gif)
+
 
 
 ## Support
